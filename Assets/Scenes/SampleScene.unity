@@ -337,6 +337,10 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 5794358464832602189
+      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Cache: []
     - rid: 6701389638432718853
       type: {class: Light2DProviderSources, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data:
@@ -344,7 +348,7 @@ MonoBehaviour:
         m_SelectedSource:
           rid: -2
         m_Provider2DCache:
-          rid: -2
+          rid: 5794358464832602189
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -371,8 +375,11 @@ GameObject:
   - component: {fileID: 733906513}
   - component: {fileID: 733906512}
   - component: {fileID: 733906514}
+  - component: {fileID: 733906515}
+  - component: {fileID: 733906516}
+  - component: {fileID: 733906517}
   m_Layer: 0
-  m_Name: DeckTester
+  m_Name: GameTester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +392,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733906511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7243eee174324794e9832faa495e4f96, type: 3}
   m_Name: 
@@ -414,13 +421,49 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733906511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc0fd6eb0bf29f24d9b84ecee88a1e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LastTable.Game.DiceTester
   sides: 6
   years: 37
+--- !u!114 &733906515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733906511}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd2340b8eafa744e86abbdb563431ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastTable.Game.FloorTester
+--- !u!114 &733906516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733906511}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b661713aa9af65f4b9919dc0c3a58b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastTable.Game.PlayerTester
+--- !u!114 &733906517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733906511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc6b1991106b6044a8e89aa4825ff38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastTable.Game.RoundTester
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
