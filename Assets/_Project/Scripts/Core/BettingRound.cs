@@ -107,6 +107,98 @@ namespace LastTable.Core
                     return false;
             }
         }
+        // What the bet bar lights up for the current player
+        public List<BetMove> LegalMoves()
+        {
+            List<BetMove> moves = new List<BetMove>();
+
+            foreach (BetMove move in Enum.GetValues(typeof(BetMove)))
+            {
+                if (IsLegal(move, 1))
+                {
+                    moves.Add(move);
+                }
+            }
+
+            return moves;
+        }
+
+        public void Act(BetMove move, int raiseBy = 0)
+        {
+            Player p = CurrentPlayer;
+
+            if (!IsLegal(move, raiseBy))
+            {
+                string who = p == null ? "Nobody" : p.Name;
+                throw new InvalidOperationException($"{who} can't {move} right now.");
+            }
+
+            int owed = OwedBy(p);
+
+            switch (move)
+            {
+                case BetMove.Check:
+                    break;
+                case BetMove.Call:
+                    PutIn(p, owed);
+                    break;
+                case BetMove.Raise:
+                    PutIn(p, owed + raiseBy);
+                    TopBet += raiseBy;
+                    break;
+                case BetMove.Fold:
+                    p.Fold();
+                    break;
+                case BetMove.AllIn:
+                    PutIn(p, p.Years);
+                    break;
+            }
+
+            toAct.Dequeue();
+            Advance();
+        }
+
+        private void PutIn(Player player, int amount)
+        {
+            int paid = player.Pay(amount);
+            bets[player] += paid;
+            round.AddToPot(paid);
+        }
+
+        private void Advance()
+        {
+            if (EndEarlyIfOnePlayerLeft())
+            {
+                return;
+            }
+
+            if (toAct.Count > 0 || lapDone)
+            {
+                return;
+            }
+            
+            // The lap is over: anyone below the top bet must now Call, Fold, or go All-In
+            lapDone = true;
+
+            foreach (Player p in PlayersStillIn())
+            {
+                if (p.Years > 0 && OwedBy(p) > 0)
+                {
+                    toAct.Enqueue(p);
+                }
+            }
+        }
         
+        // If everyone else folds, the last player in wins without a showdown
+        private bool EndEarlyIfOnePlayerLeft()
+        {
+            if (PlayersStillIn().Count <= 1)
+            {
+                toAct.Clear();
+                return true;
+            }
+
+            return false;
+        }
     }
 }

@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 733906515}
   - component: {fileID: 733906516}
   - component: {fileID: 733906517}
+  - component: {fileID: 733906518}
   m_Layer: 0
   m_Name: GameTester
   m_TagString: Untagged
@@ -459,11 +460,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733906511}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bc6b1991106b6044a8e89aa4825ff38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LastTable.Game.RoundTester
+--- !u!114 &733906518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733906511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1575126c823da924ca44134a9c2c31e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LastTable.Game.BettingTester
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
