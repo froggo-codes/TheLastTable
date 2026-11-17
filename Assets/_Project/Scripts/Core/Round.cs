@@ -119,6 +119,17 @@ namespace LastTable.Core
             return null;
         }
         
+        // Years go into the pot as players bet
+        public void AddToPot(int amount)
+        {
+            if (amount < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), " Can't add a negative amount to the pot.");
+            }
+
+            Pot += amount;
+        }
+        
         // Clears every hand and turns anyone left at 0 years into a ghost
         public void End()
         {
